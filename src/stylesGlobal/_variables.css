@@ -1,0 +1,191 @@
+@import url('./_colors.css');
+@import url('../../public/static/fonts/fonts.css');
+
+:root {
+  --color-primary: var(--brand-blue);
+  --color-secondary: var(--brand-grey-light);
+  --color-highlight: var(--brand-blue);
+
+  /* Only use these vars for most color referencing for easy light/dark mode */
+  --font-color-text: var(--brand-grey);
+  --font-color-heading: var(--brand-black);
+  --font-color-light: var(--color-secondary);
+  --background-body: var(--brand-white);
+  --background-body-transparent: rgba(255, 255, 255, 0.8);
+  --background-content: var(--brand-white);
+  --background-highlight: var(--brand-grey-dimmed);
+  --border-color: var(--brand-grey-lighter);
+  --box-shadow-color: rgba(0, 0, 0, 0.05);
+  --checkbox-selected-background: var(--brand-blue);
+  --bookmark-icon-fill-color: var(--brand-grey-lighter);
+  --bookmark-icon-selected-fill-color: var(--brand-grey);
+  --link-font-color: var(--color-highlight);
+  --nft-refresh-icon-fill: var(--brand-white);
+  --badge-background-color: var(--color-primary);
+  --nft-placeholder-background: var(--brand-gradient);
+
+  /* Menubar */
+  --menu-logo-color: var(--brand-gaia-x-blue);
+  --menu-logo-color-hover: var(--brand-gaia-x-blue);
+  --menu-logo-size-width-sm: 3.5rem;
+  --menu-logo-size-height-sm: 3.5rem;
+  --menu-logo-size-width-lg: 15rem;
+  --menu-logo-size-height-lg: 3.5rem;
+  --menu-font-color: var(--color-primary);
+  --menu-font-color-active: var(--font-color-heading);
+  --menu-font-color-hover: var(--color-primary);
+  --menu-active-indicator-color: var(--brand-blue);
+  --menu-mobile-navigation-border-size: var(--border-size-sm);
+  --menu-mobile-navigation-border-color: var(--brand-grey-lighter);
+  --menu-border-color: var(--color-primary);
+  --menu-border-radius: var(--border-radius-sm);
+  --menu-border-size: var(--border-size);
+  --menu-icon-fill-color: var(--color-primary);
+  --menu-icon-fill-color-hover: var(--color-primary);
+  --menu-title-font-size: var(--font-size-h4);
+  --menu-link-font-size: var(--font-size-base);
+  --menu-link-font-weight: var(--font-weight-bold);
+  --menu-link-font-weight-active: var(--font-weight-bold);
+  --menu-caret-size: var(--font-size-small);
+  --menu-caret-fill-color: var(--color-primary);
+  --menu-caret-active-fill-color: var(--color-primary);
+  --menu-network-badge-font-color: var(--brand-white);
+
+  /* Footer */
+  --footer-background-color: var(--brand-grey);
+  --footer-font-color: var(--brand-white);
+  --footer-font-color-highlight: var(--brand-cyan);
+  --footer-link-category-font-color: var(--brand-white);
+
+  /* Homepage */
+  --home-brand-logo-size-width: 22rem;
+  --home-brand-logo-size-height: 6rem;
+  --home-gaia-x-logo-size-width: 9rem;
+  --home-gaia-x-logo-size-height: 5rem;
+
+  /* Input elements */
+  --input-font-color: var(--font-color-heading);
+  --input-placeholder-font-color: var(--brand-grey);
+  --input-disabled-font-color: var(--font-color-light);
+  --input-border-color: var(--brand-grey-lighter);
+  --input-border-size: var(--border-size-sm);
+  --input-border-radius: var(--border-radius);
+  --input-background: var(--brand-white);
+  --input-background-highlight: var(--background-highlight);
+  --input-selected-background: var(--checkbox-selected-background);
+  --input-selected-border-size: var(--border-size);
+  --input-selected-border-color: var(--font-color-heading);
+
+  /* Buttons */
+  --button-border-radius: var(--border-radius);
+  --button-font-color: var(--brand-white);
+  --button-background: var(--font-color-light);
+  --button-hover-font-color: var(--brand-white);
+  --button-hover-background: var(--font-color-light);
+  --button-active-font-color: var(--brand-white);
+  --button-active-background: var(--font-color-light);
+  --button-primary-font-color: var(--brand-white);
+  --button-primary-background: var(--brand-gradient);
+  --button-primary-border-color: var(--brand-black);
+  --button-primary-hover-background: var(--color-primary);
+  --button-primary-hover-border-color: var(--color-primary);
+  --button-ghost-font-color: var(--color-primary);
+  --button-ghost-background: var(--brand-white);
+  --button-ghost-hover-background: var(--brand-red-dark);
+  --button-text-font-color: var(--color-highlight);
+
+  /* Loading spinner */
+  --loader-border-color: var(--brand-blue);
+  --loader-top-border-color: transparent;
+  --loader-border-size: var(--border-size);
+  --loader-message-color: var(--color-secondary);
+
+  /* Box template */
+  --box-template-background: var(--background-content);
+  --box-template-border-radius: var(--border-radius);
+  --box-template-border-size: var(--border-size-sm);
+  --box-template-border-color: var(--border-color);
+  --box-template-box-shadow: 0 6px 17px 0 var(--box-shadow-color);
+  --box-template-hover-box-shadow: 0 10px 25px 0 var(--box-shadow-color);
+
+  /* Asset teaser */
+  --teaser-font-color: var(--color-secondary);
+  --teaser-title-font-color: var(--font-color-heading);
+  --teaser-background: var(--background-content);
+  --teaser-border-radius: var(--border-radius);
+  --teaser-border-size: var(--border-size-sm);
+  --teaser-border-color: var(--border-color);
+  --teaser-box-shadow: 0 6px 17px 0 var(--box-shadow-color);
+  --teaser-hover-box-shadow: 0 10px 25px 0 var(--box-shadow-color);
+
+  /* Pagination component */
+  --pagination-font-color: var(--color-secondary);
+  --pagination-selected-font-color: var(--font-color-heading);
+  --pagination-hover-font-color: var(--color-highlight);
+
+  /* Filter and sort */
+  --filter-title-color: var(--font-color-heading);
+  --filter-title-font-size: var(--font-size-title);
+  --filter-type-color: var(--font-color-text);
+  --filter-type-font-size: var(--font-size-large);
+  --filter-label-color: var(--font-color-text);
+  --filter-label-font-size: var(--font-size-base);
+  --filter-clear-color: var(--color-primary);
+  --filter-clear-hover-color: var(--color-highlight);
+
+  /* Confetti */
+  --confetti-color-one: var(--brand-blue-light);
+  --confetti-color-two: var(--brand-cyan);
+  --confetti-color-three: var(--brand-violet);
+  --confetti-color-four: var(--brand-grey-light);
+  --confetti-color-five: var(--brand-grey-lighter);
+
+  --font-family-base: 'Titillium Web', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-family-heading: 'Titillium Web', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-family-monospace: 'Fira Code', 'Fira Mono', Menlo, Monaco, Consolas,
+    'Courier New', monospace;
+
+  --font-size-root: 15px;
+  --font-size-base: 1rem;
+  --font-size-large: 1.2rem;
+  --font-size-small: 0.85rem;
+  --font-size-mini: 0.65rem;
+  --font-size-text: 1rem;
+  --font-size-label: 1rem;
+  --font-size-title: 1.4rem;
+  --font-size-h1: 3rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h3: 1.7rem;
+  --font-size-h4: 1.3rem;
+  --font-size-h5: 1.1rem;
+  --font-weight-base: 500;
+  --font-weight-bold: 600;
+  --line-height: 1.6;
+
+  --spacer: 2rem;
+  --border-radius-sm: 2px;
+  --border-radius: 0.2rem;
+  --border-size-sm: 1px;
+  --border-size: 2px;
+
+  --layout-max-width: 85rem;
+  --checkbox-size: 1.6em;
+
+  --break-point--small: 640px;
+  --break-point--medium: 860px;
+  --break-point--large: 1140px;
+  --break-point--huge: 1400px;
+}
+
+.dark {
+  --font-color-text: #e2e2e2;
+  --font-color-heading: #f7f7f7;
+  --background-body: rgb(10, 10, 10);
+  --background-body-transparent: rgba(10, 10, 10, 0.9);
+  --background-content: #141414;
+  --background-highlight: #201f1f;
+  --border-color: #303030;
+  --box-shadow-color: rgba(0, 0, 0, 0.2);
+}

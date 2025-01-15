@@ -1,0 +1,11 @@
+.container {
+  composes: container from '../../../components/Search/index.module.css';
+}
+
+.filterContainer {
+  composes: filterContainer from '../../../components/Search/index.module.css';
+}
+
+.results {
+  composes: results from '../../../components/Search/index.module.css';
+}

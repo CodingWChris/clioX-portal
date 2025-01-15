@@ -1,0 +1,67 @@
+.search {
+  --button-size: 38px;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+  width: 100%;
+  padding: 5px 0;
+  padding-bottom: calc(var(--spacer) / 2);
+  position: relative;
+}
+
+.springContainer {
+  width: 100%;
+}
+
+.button {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  padding: calc(var(--spacer) / 4);
+  width: var(--button-size);
+  color: var(--font-color-text);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.input {
+  margin: 0;
+  outline: 0;
+  padding-right: var(--spacer);
+  padding-left: var(--button-size);
+  height: var(--button-size);
+  max-width: 100%;
+  border: var(--input-border-size) solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  background-color: var(--input-background);
+  font-size: 16px; /* prevent zoom in on input focus on mobile devices */
+  cursor: text;
+  transition: 0.1s ease-out;
+}
+
+.input:focus {
+  /* prevent the placeholder to move when increasing the border size*/
+  padding-left: calc(var(--button-size) - 1px);
+
+  border: var(--input-selected-border-size) solid
+    var(--input-selected-border-color);
+}
+
+.searchIcon {
+  fill: var(--input-placeholder-font-color);
+  transition: 0.1s ease-out;
+  width: var(--font-size-base);
+  height: var(--font-size-base);
+}
+
+.search:has(.input:focus) .searchIcon,
+.button:hover .searchIcon,
+.button:focus .searchIcon {
+  fill: var(--input-font-color);
+}

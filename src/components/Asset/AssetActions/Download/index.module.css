@@ -1,0 +1,51 @@
+.consume {
+  width: auto;
+  margin-bottom: calc(var(--spacer) / 2);
+  margin-top: -1rem;
+}
+
+.info {
+  display: flex;
+  width: auto;
+}
+
+.priceWrapper > div {
+  justify-content: flex-start;
+}
+
+.priceWrapper > div:last-of-type {
+  margin-bottom: 0;
+}
+
+.filewrapper {
+  flex-shrink: 0;
+}
+
+.consumerParameters > div {
+  margin-top: var(--spacer);
+  border-bottom: none;
+}
+
+.price {
+  align-self: center;
+}
+
+.feedback {
+  width: 100%;
+  margin-top: calc(var(--spacer));
+}
+
+.buttonBuy > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttonBuy > div > button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.confettiContainer {
+  margin-top: calc(var(--spacer) / 2);
+}

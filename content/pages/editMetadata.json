@@ -1,0 +1,301 @@
+{
+  "form": {
+    "success": "🎉 Successfully updated. 🎉\n\nUpdates might not show up right away on your asset. In this case, wait some seconds and reload your asset details page in your browser.",
+    "error": "Updating DDO failed.",
+    "stateError": "Updating asset state failed.",
+    "data": [
+      {
+        "name": "name",
+        "label": "New Title",
+        "placeholder": "e.g. Production data of a manufacturing process",
+        "help": "Enter a concise title.",
+        "required": true
+      },
+      {
+        "name": "description",
+        "label": "New Description",
+        "help": "Add a thorough description with as much detail as possible. You can use [Markdown](https://daringfireball.net/projects/markdown/basics).",
+        "type": "textarea",
+        "rows": 10,
+        "required": true
+      },
+      {
+        "name": "price",
+        "label": "New Price",
+        "type": "number",
+        "min": "1",
+        "placeholder": "0",
+        "help": "Enter a new price.",
+        "required": true
+      },
+      {
+        "name": "files",
+        "label": "File",
+        "prominentHelp": false,
+        "type": "tabs",
+        "fields": [
+          {
+            "value": "url",
+            "title": "URL",
+            "label": "File",
+            "placeholder": "e.g. https://file.com/file.json",
+            "help": "This URL will be stored encrypted after publishing. **Please make sure that the endpoint is accessible over the internet and is not protected by a firewall or by credentials.**",
+            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
+            "prominentHelp": true,
+            "type": "files",
+            "required": true,
+            "methods": false
+          },
+          {
+            "value": "url",
+            "title": "API",
+            "label": "File",
+            "placeholder": "e.g. https://file.com/file.json",
+            "help": "This URL will be stored encrypted after publishing. **Please make sure that the endpoint is accessible over the internet and is not protected by a firewall or by credentials.**",
+            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
+            "prominentHelp": true,
+            "type": "files",
+            "required": true,
+            "methods": true,
+            "innerFields": [
+              {
+                "value": "headers",
+                "title": "Headers",
+                "label": "Headers",
+                "placeholder_value": "Authorization",
+                "help": "This HEADERS will be stored encrypted after publishing.",
+                "type": "headers",
+                "required": false
+              }
+            ]
+          },
+          {
+            "value": "saas",
+            "title": "SaaS",
+            "label": "Redirect URL",
+            "placeholder": "e.g. https://delta-dao/the-future-is-now",
+            "help": "The url the user will be redirected to after buying access to the SaaS.",
+            "prominentHelp": true,
+            "type": "saas",
+            "fieldFormPrefix": "saas",
+            "required": true,
+            "methods": false,
+            "innerFields": [
+              {
+                "value": "paymentMode",
+                "title": "PaymentMode",
+                "label": "PaymentMode",
+                "help": "Choose how the payment mode for your Saas.",
+                "type": "select",
+                "selected": "",
+                "options": ["Subscription", "Pay per use"],
+                "required": true
+              }
+            ]
+          },
+          {
+            "value": "graphql",
+            "title": "Graphql",
+            "label": "URL",
+            "placeholder": "e.g. http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph",
+            "help": "This URL will be stored encrypted after publishing.",
+            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
+            "prominentHelp": true,
+            "type": "files",
+            "required": true,
+            "innerFields": [
+              {
+                "value": "headers",
+                "title": "Headers",
+                "label": "Headers",
+                "placeholder_value": "Authorization",
+                "help": "This HEADERS will be stored encrypted after publishing.",
+                "type": "headers",
+                "required": false
+              },
+              {
+                "value": "query",
+                "title": "Query",
+                "label": "Query",
+                "placeholder": "query{\n    nfts(\n       orderBy: createdTimestamp,\n       orderDirection:desc\n   ){\n       id\n       symbol\n       createdTimestamp\n   }\n}",
+                "help": "This QUERY will be stored encrypted after publishing.",
+                "type": "codeeditor",
+                "required": true
+              }
+            ]
+          },
+          {
+            "value": "ipfs",
+            "title": "IPFS",
+            "label": "CID",
+            "placeholder": "e.g. bafkreidgvpkjawlxz6sffxzwgooowe5yt7i6wsyg236mfoks77nywkptdq",
+            "help": "This CID will be stored encrypted after publishing.",
+            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
+            "prominentHelp": true,
+            "type": "files",
+            "required": true
+          }
+        ],
+        "sortOptions": false,
+        "required": true
+      },
+      {
+        "name": "links",
+        "label": "Sample file",
+        "prominentHelp": false,
+        "type": "tabs",
+        "fields": [
+          {
+            "value": "url",
+            "title": "URL",
+            "label": "File",
+            "placeholder": "e.g. https://file.com/file.json",
+            "help": "This URL will be stored encrypted after publishing. **Please make sure that the endpoint is accessible over the internet and is not protected by a firewall or by credentials.**",
+            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
+            "prominentHelp": true,
+            "type": "files",
+            "required": false
+          }
+        ],
+        "required": false
+      },
+
+      {
+        "name": "timeout",
+        "label": "Timeout",
+        "help": "Define how long buyers should be able to download the dataset again after the initial purchase.",
+        "type": "select",
+        "options": [
+          "Forever",
+          "1 hour",
+          "1 day",
+          "1 week",
+          "1 month",
+          "1 year"
+        ],
+        "sortOptions": false,
+        "required": true
+      },
+      {
+        "name": "serviceCredential",
+        "label": "Service Credential",
+        "placeholder": "e.g. https://file.com/service-credential.json",
+        "help": "Please enter the URL to a valid service credential and click \"ADD FILE\" to validate the data. This file URL and its content will be publicly available after publishing",
+        "type": "serviceCredential"
+      },
+      {
+        "name": "tags",
+        "label": "New Tags",
+        "type": "tags",
+        "placeholder": "e.g. logistics",
+        "required": false
+      },
+      {
+        "name": "usesConsumerParameters",
+        "label": "Algorithm custom parameters",
+        "help": "Algorithm custom parameters are used to define required consumer input before running the algorithm in a Compute-to-Data environment.",
+        "type": "checkbox",
+        "options": ["This asset uses algorithm custom parameters"],
+        "required": false
+      },
+      {
+        "name": "allow",
+        "label": "Allow ETH Address",
+        "placeholder": "e.g. 0xe328aB96B7CbB55A6E1c1054678137bA09780acA",
+        "help": "Enter an ETH address and click the ADD button to append to the list. Only ETH addresses in the allow list can consume this asset. If the list is empty anyone can download or compute this asset.",
+        "type": "credentials"
+      },
+      {
+        "name": "deny",
+        "label": "Deny ETH Address",
+        "placeholder": "e.g. 0xe328aB96B7CbB55A6E1c1054678137bA09780acA",
+        "help": "Enter an ETH address and click the ADD button to append to the list. If an ETH address is in the deny list, download or compute of this asset will be denied for that ETH address.",
+        "type": "credentials"
+      },
+      {
+        "name": "paymentCollector",
+        "label": "Payment Collector Address",
+        "placeholder": "e.g. 0X123ABC...",
+        "help": "This address will receive the revenue from all sales. More info available in our [docs](https://docs.oceanprotocol.com/core-concepts/datanft-and-datatoken#revenue).",
+        "required": false
+      },
+      {
+        "name": "assetState",
+        "label": "Asset Status",
+        "help": "This asset will no longer be visible to other users and it won't be possible to purchase it.  More info available in our [docs](https://docs.oceanprotocol.com/core-concepts/did-ddo#state).",
+        "type": "select",
+        "options": [
+          "Active",
+          "Revoked by publisher",
+          "Ordering is temporary disabled",
+          "Asset unlisted"
+        ],
+        "sortOptions": false,
+        "required": false
+      },
+      {
+        "name": "usesServiceConsumerParameters",
+        "label": "User defined parameters",
+        "help": "User defined parameters are used to filter or query the published asset.",
+        "type": "checkbox",
+        "options": ["This asset uses user defined parameters"],
+        "required": false
+      },
+      {
+        "name": "license",
+        "label": "License",
+        "placeholder": "e.g. MIT",
+        "help": "A SPDX identifier of the license applicable to this service."
+      },
+      {
+        "name": "accessTermsAndConditions",
+        "value": "url",
+        "title": "URL",
+        "label": "Terms and Conditions",
+        "placeholder": "e.g. https://file.com/tandc.md",
+        "help": "The Terms and Conditions under which this service can be accessed. A resolvable link to the T&C document is expected. If no Terms are given the default [terms of this portal](/terms) will be applied.",
+        "prominentHelp": true,
+        "type": "files",
+        "required": false
+      },
+      {
+        "name": "containsPII",
+        "label": "Personally Identifiable Information",
+        "type": "checkbox",
+        "options": ["The dataset offered contains PII"],
+        "required": false
+      },
+      {
+        "name": "dataController",
+        "label": "Data Controller",
+        "help": "The responsible data controller, as defined in the GDPR.",
+        "default": "",
+        "required": true
+      },
+      {
+        "name": "legalBasis",
+        "label": "Legal Basis",
+        "help": "The legal basis for processing PII. Defined in GDPR.",
+        "placeholder": "e.g. GDPR2016:6.1.a",
+        "required": true
+      },
+      {
+        "name": "purpose",
+        "label": "Purposes",
+        "help": "The purpose of processing the contained PII. It is recommended to use [established vocabulary](https://w3c.github.io/dpv/dpv/#vocab-purpose).",
+        "placeholder": "e.g. ServiceOptimization, UserInterfacePersonalization",
+        "required": true
+      },
+      {
+        "name": "dataProtectionContactPoint",
+        "label": "Data Protection Contact Point",
+        "required": true
+      },
+      {
+        "name": "consentWithdrawalContactPoint",
+        "label": "Consent Withdrawal Contact Point",
+        "required": true
+      }
+    ]
+  }
+}

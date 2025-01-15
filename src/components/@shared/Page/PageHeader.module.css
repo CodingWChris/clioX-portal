@@ -1,0 +1,86 @@
+.header {
+  margin-bottom: var(--spacer);
+}
+
+.title {
+  font-size: var(--font-size-h3);
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline-flex;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.homeTitleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeTitleContainer > svg {
+  width: var(--home-brand-logo-size-width);
+  height: var(--home-brand-logo-size-height);
+}
+
+.homeTitleContainer h1 {
+  color: var(--color-primary);
+  margin-bottom: 0;
+}
+
+.homeTitleContainer .subtitle p {
+  margin: calc(var(--spacer) / 4) 0;
+  font-size: var(--font-size-h3);
+}
+
+.logoContainer {
+  position: relative;
+  margin: calc(var(--spacer) / 2) 0;
+}
+
+.logoContainerTitle {
+  position: absolute;
+  width: max-content;
+  top: 1.8rem;
+  left: -1.7rem;
+  color: var(--brand-gaia-x-blue);
+  font-size: var(--font-size-h5);
+}
+
+.logoContainer svg {
+  width: var(--home-gaia-x-logo-size-width);
+  height: var(--home-gaia-x-logo-size-height);
+}
+
+@media (min-width: 40rem) {
+  .title {
+    font-size: var(--font-size-h2);
+  }
+}
+
+.description {
+  font-size: var(--font-size-h3);
+  margin-top: calc(var(--spacer) / 4);
+  margin-bottom: 0;
+}
+
+.center,
+.search {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin-top: calc(var(--spacer) / 2);
+  max-width: 30rem;
+}
+
+.networkAlert {
+  margin: var(--spacer) auto;
+}

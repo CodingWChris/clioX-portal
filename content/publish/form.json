@@ -1,0 +1,378 @@
+{
+  "metadata": {
+    "title": "Metadata",
+    "fields": [
+      {
+        "name": "nft",
+        "label": "Data NFT",
+        "type": "nft",
+        "help": "Data NFTs are unique digital assets that represent the intellectual property of your digital services, enabling flexible licensing arrangements and enhanced control over your valuable business data. Each Data NFT can issue multiple access tokens with customized terms, enabling varied access levels and durations for your digital service.",
+        "required": true
+      },
+      {
+        "name": "type",
+        "label": "Asset Type",
+        "type": "boxSelection",
+        "options": ["Dataset", "Algorithm"],
+        "required": true
+      },
+      {
+        "name": "name",
+        "label": "Title",
+        "placeholder": "e.g. Shapes of Desert Plants",
+        "required": true
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "help": "Add a thorough description with as much detail as possible. You can use [Markdown](https://daringfireball.net/projects/markdown/basics). You can change the description at any time. If you provide personal data, please note that it will remain in the transaction history.",
+        "type": "textarea",
+        "required": true
+      },
+      {
+        "name": "serviceCredential",
+        "label": "Service Credential",
+        "placeholder": "e.g. https://file.com/service-credential.json",
+        "help": "Please enter the URL to a valid service credential and click \"ADD FILE\" to validate the data. This file URL and its content will be publicly available after publishing",
+        "type": "serviceCredential"
+      },
+      {
+        "name": "tags",
+        "label": "Tags",
+        "type": "tags",
+        "placeholder": "e.g. logistics"
+      },
+      {
+        "name": "license",
+        "label": "License",
+        "placeholder": "e.g. MIT",
+        "help": "A SPDX identifier of the license applicable to this service."
+      },
+      {
+        "name": "accessTermsAndConditions",
+        "value": "url",
+        "title": "URL",
+        "label": "Terms and Conditions",
+        "placeholder": "e.g. https://file.com/tandc.md",
+        "help": "The Terms and Conditions under which this service can be accessed. A resolvable link to the T&C document is expected. If no Terms are given the default [terms of this portal](/terms) will be applied.",
+        "prominentHelp": true,
+        "type": "files",
+        "required": false
+      },
+      {
+        "name": "dockerImage",
+        "label": "Docker Image",
+        "help": "Please select an image to run your algorithm.",
+        "type": "boxSelection",
+        "options": [
+          "populated from algorithmContainerPresets in Publish/_constants"
+        ],
+        "required": true
+      },
+      {
+        "name": "dockerImageCustom",
+        "label": "Custom Docker Image",
+        "placeholder": "e.g. oceanprotocol/algo_dockers:node-vibrant or quay.io/startx/mariadb",
+        "help": "Provide the name and the tag of a public Docker hub image or the custom image if you have it hosted in a 3rd party repository",
+        "type": "container",
+        "required": true
+      },
+      {
+        "name": "dockerImageChecksum",
+        "label": "Docker Image Checksum",
+        "placeholder": "e.g. sha256:xiXqb7Vet0FbN9q0GFMgUdi5C22wjJT0i2G6lYKC2jl6QxkKzVz7KaPDgqfTMjNF",
+        "help": "Provide the checksum(DIGEST) of your docker image.",
+        "required": true
+      },
+      {
+        "name": "dockerImageCustomEntrypoint",
+        "label": "Docker Image Entrypoint",
+        "placeholder": "e.g. python $ALGO",
+        "help": "Provide the entrypoint for your algorithm.",
+        "required": true
+      },
+      {
+        "name": "usesConsumerParameters",
+        "label": "Algorithm custom parameters",
+        "help": "Algorithm custom parameters are used to define required consumer input before running the algorithm in a Compute-to-Data environment.",
+        "type": "checkbox",
+        "options": ["This asset uses algorithm custom parameters"],
+        "required": false
+      },
+      {
+        "name": "containsPII",
+        "label": "Personally Identifiable Information",
+        "type": "checkbox",
+        "options": ["The dataset offered contains PII"],
+        "required": true
+      },
+      {
+        "name": "dataController",
+        "label": "Data Controller",
+        "help": "The responsible data controller, as defined in the GDPR.",
+        "default": "",
+        "required": true
+      },
+      {
+        "name": "legalBasis",
+        "label": "Legal Basis",
+        "help": "The legal basis for processing PII. Defined in GDPR.",
+        "placeholder": "e.g. GDPR2016:6.1.a",
+        "required": true
+      },
+      {
+        "name": "purpose",
+        "label": "Purposes",
+        "help": "The purpose of processing the contained PII. It is recommended to use [established vocabulary](https://w3c.github.io/dpv/dpv/#vocab-purpose).",
+        "placeholder": "e.g. ServiceOptimization, UserInterfacePersonalization",
+        "required": true
+      },
+      {
+        "name": "dataProtectionContactPoint",
+        "label": "Data Protection Contact Point",
+        "required": true
+      },
+      {
+        "name": "consentWithdrawalContactPoint",
+        "label": "Consent Withdrawal Contact Point",
+        "required": true
+      },
+      {
+        "name": "termsAndConditions",
+        "label": "Terms & Conditions",
+        "type": "checkbox",
+        "options": ["Terms and Conditions"],
+        "prefixes": ["I agree to the"],
+        "actions": ["/terms"],
+        "required": true
+      }
+    ]
+  },
+  "services": {
+    "title": "Access",
+    "fields": [
+      {
+        "name": "dataTokenOptions",
+        "label": "Datatoken",
+        "type": "datatoken",
+        "help": "The datatoken used for accessing this asset will be created with this name & symbol.",
+        "required": true
+      },
+      {
+        "name": "providerUrl",
+        "label": "Access Controller URL",
+        "type": "providerUrl",
+        "help": "Enter the URL for your custom [provider](https://github.com/oceanprotocol/provider/) or leave as is to use the default one. If you change your provider URL after adding your file, please add & validate your file again.",
+        "placeholder": "e.g. https://provider.oceanprotocol.com/",
+        "required": true
+      },
+      {
+        "name": "files",
+        "label": "File",
+        "prominentHelp": false,
+        "type": "tabs",
+        "fields": [
+          {
+            "value": "url",
+            "title": "URL",
+            "label": "File",
+            "placeholder": "e.g. https://file.com/file.json",
+            "help": "This URL will be stored encrypted after publishing. **Please make sure that the endpoint is accessible over the internet and is not protected by a firewall or by credentials.**",
+            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
+            "prominentHelp": true,
+            "type": "files",
+            "required": true,
+            "methods": false
+          },
+          {
+            "value": "url",
+            "title": "API",
+            "label": "Endpoint",
+            "placeholder": "e.g. https://file.com/file.json",
+            "help": "This URL will be stored encrypted after publishing. **Please make sure that the endpoint is accessible over the internet and is not protected by a firewall or by credentials.**",
+            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
+            "prominentHelp": true,
+            "type": "files",
+            "required": true,
+            "methods": true,
+            "innerFields": [
+              {
+                "value": "headers",
+                "title": "Headers",
+                "label": "Headers",
+                "placeholder_value": "Authorization",
+                "help": "This HEADERS will be stored encrypted after publishing.",
+                "type": "headers",
+                "required": false
+              }
+            ]
+          },
+          {
+            "value": "saas",
+            "title": "SaaS",
+            "label": "Redirect URL",
+            "placeholder": "e.g. https://delta-dao/the-future-is-now",
+            "help": "The url the user will be redirected to after buying access to the Software as a Service offering.",
+            "prominentHelp": true,
+            "type": "saas",
+            "fieldFormPrefix": "metadata.saas",
+            "required": true,
+            "methods": false,
+            "innerFields": [
+              {
+                "value": "paymentMode",
+                "title": "PaymentMode",
+                "label": "PaymentMode",
+                "help": "Choose the payment mode of your Software as a Service offering.",
+                "type": "select",
+                "selected": "",
+                "options": ["Subscription", "Pay per use"],
+                "required": true
+              }
+            ]
+          },
+          {
+            "value": "graphql",
+            "title": "Graphql",
+            "label": "URL",
+            "placeholder": "e.g. http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph",
+            "help": "This URL will be stored encrypted after publishing.",
+            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
+            "prominentHelp": true,
+            "type": "files",
+            "required": true,
+            "innerFields": [
+              {
+                "value": "headers",
+                "title": "Headers",
+                "label": "Headers",
+                "placeholder_value": "Authorization",
+                "help": "This HEADERS will be stored encrypted after publishing.",
+                "type": "headers",
+                "required": false
+              },
+              {
+                "value": "query",
+                "title": "Query",
+                "label": "Query",
+                "placeholder": "query{\n    nfts(\n       orderBy: createdTimestamp,\n       orderDirection:desc\n   ){\n       id\n       symbol\n       createdTimestamp\n   }\n}",
+                "help": "This QUERY will be stored encrypted after publishing.",
+                "type": "codeeditor",
+                "required": true
+              }
+            ]
+          },
+          {
+            "value": "ipfs",
+            "title": "IPFS",
+            "label": "CID",
+            "placeholder": "e.g. bafkreidgvpkjawlxz6sffxzwgooowe5yt7i6wsyg236mfoks77nywkptdq",
+            "help": "This CID will be stored encrypted after publishing.",
+            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
+            "prominentHelp": true,
+            "type": "files",
+            "required": true
+          }
+        ],
+        "sortOptions": false,
+        "required": true
+      },
+      {
+        "name": "links",
+        "label": "Sample file",
+        "prominentHelp": false,
+        "type": "tabs",
+        "fields": [
+          {
+            "value": "url",
+            "title": "URL",
+            "label": "File",
+            "placeholder": "e.g. https://file.com/file.json",
+            "help": "This URL will be stored encrypted after publishing. **Please make sure that the endpoint is accessible over the internet and is not protected by a firewall or by credentials.**",
+            "computeHelp": "For a compute dataset, your file should match the file type required by the algorithm, and should not exceed 1 GB in file size. ",
+            "prominentHelp": true,
+            "type": "files",
+            "required": false
+          }
+        ],
+        "required": false
+      },
+      {
+        "name": "algorithmPrivacy",
+        "label": "Algorithm Privacy",
+        "type": "checkbox",
+        "options": ["Keep my algorithm private for Compute-to-Data"],
+        "help": "By default, your algorithm can be downloaded for free or a fixed price, in addition to running in compute jobs. Enabling this option will prevent downloading, so your algorithm can only be run as part of a compute job on a dataset.",
+        "required": false
+      },
+      {
+        "name": "access",
+        "label": "Access Type",
+        "help": "Choose how you want your files to be accessible for the specified price.",
+        "type": "boxSelection",
+        "options": ["Access", "Compute"],
+        "required": true,
+        "disclaimer": "Please do not provide downloadable personal data without the consent of the data subjects.",
+        "disclaimerValues": ["Download"]
+      },
+
+      {
+        "name": "usesConsumerParameters",
+        "label": "User defined parameters",
+        "help": "User defined parameters are used to filter or query the published asset.",
+        "type": "checkbox",
+        "options": ["This asset uses user defined parameters"],
+        "required": false
+      }
+    ]
+  },
+  "policies": {
+    "title": "Policies",
+    "fields": [
+      {
+        "name": "timeout",
+        "label": "Access Period",
+        "help": "Define how long buyers should be able to access your offering again after the initial purchase.",
+        "type": "select",
+        "options": [
+          "Forever",
+          "1 hour",
+          "1 day",
+          "1 week",
+          "1 month",
+          "1 year"
+        ],
+        "sortOptions": false,
+        "required": true
+      },
+      {
+        "name": "allow",
+        "label": "Allow Wallet Address",
+        "placeholder": "e.g. 0xe328aB96B7CbB55A6E1c1054678137bA09780acA",
+        "help": "Enter an wallet address and click the ADD button to append to the list. Only wallet addresses in the allow list can consume this asset. If the list is empty anyone can download or compute this asset. For more information, you can visit the [Pontus-X registry page](https://docs.pontus-x.eu/docs/participants-and-federators/ecosystem-participants).",
+        "type": "credentials"
+      },
+      {
+        "name": "deny",
+        "label": "Deny Wallet Address",
+        "placeholder": "e.g. 0xe328aB96B7CbB55A6E1c1054678137bA09780acA",
+        "help": "Enter an wallet address and click the ADD button to append to the list. If an wallet address is in the deny list, download or compute of this asset will be denied for that wallet address. For more information, you can visit the [Pontus-X registry page](https://docs.pontus-x.eu/docs/participants-and-federators/ecosystem-participants).",
+        "type": "credentials"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "fields": [
+      {
+        "name": "dummy content, actual content is defined under 'create' key in ../price.json"
+      }
+    ]
+  },
+  "preview": {
+    "title": "Preview"
+  },
+  "submission": {
+    "title": "Submit"
+  }
+}
