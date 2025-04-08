@@ -18,7 +18,16 @@ export default function ServicesFields(): ReactElement {
   const { values, setFieldValue } = useFormikContext<FormPublishData>()
 
   // name and title should be download, but option value should be access, probably the best way would be to change the component so that option is an object like {name,value}
+  // Swapped the order to show Compute first, then Download
   const accessTypeOptions = [
+    {
+      name: accessTypeOptionsTitles[1].toLowerCase(),
+      value: accessTypeOptionsTitles[1].toLowerCase(),
+      title: accessTypeOptionsTitles[1],
+      icon: <IconCompute />,
+      checked:
+        values.services[0].access === accessTypeOptionsTitles[1].toLowerCase()
+    },
     {
       name: 'download',
       value: accessTypeOptionsTitles[0].toLowerCase(),
@@ -28,14 +37,6 @@ export default function ServicesFields(): ReactElement {
       // so we need to handle checked state manually.
       checked:
         values.services[0].access === accessTypeOptionsTitles[0].toLowerCase()
-    },
-    {
-      name: accessTypeOptionsTitles[1].toLowerCase(),
-      value: accessTypeOptionsTitles[1].toLowerCase(),
-      title: accessTypeOptionsTitles[1],
-      icon: <IconCompute />,
-      checked:
-        values.services[0].access === accessTypeOptionsTitles[1].toLowerCase()
     }
   ]
 

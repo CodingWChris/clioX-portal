@@ -52,10 +52,10 @@ export default function MetadataFields(): ReactElement {
     }))
 
   useEffect(() => {
-    setFieldValue(
-      'services[0].access',
-      values.metadata.type === 'algorithm' ? 'compute' : 'access'
-    )
+    // Always set default access type to 'compute' for both dataset and algorithm
+    setFieldValue('services[0].access', 'compute')
+
+    // Set algorithm privacy based on type
     setFieldValue(
       'services[0].algorithmPrivacy',
       values.metadata.type === 'algorithm'
